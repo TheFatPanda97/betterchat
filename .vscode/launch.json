@@ -5,15 +5,43 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "betterchat",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "betterchat (profile mode)",
+      "name": "betterchat - id1",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "program": "id1/lib/main.dart"
+    },
+    {
+      "name": "betterchat -id1 (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "id1/lib/main.dart"
+    },
+    {
+      "name": "betterchat - id2",
+      "request": "launch",
+      "type": "dart",
+      "program": "id2/lib/main.dart"
+    },
+    {
+      "name": "betterchat - id2 (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "id2/lib/main.dart"
+    },
+    {
+      "name": "betterchat - id3",
+      "request": "launch",
+      "type": "dart",
+      "program": "id3/lib/main.dart"
+    },
+    {
+      "name": "betterchat -id3 (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "id3/lib/main.dart"
     }
   ]
 }
