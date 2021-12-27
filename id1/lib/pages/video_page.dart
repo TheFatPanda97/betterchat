@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tencent_trtc_cloud/trtc_cloud_def.dart';
 import 'package:tencent_trtc_cloud/trtc_cloud.dart';
 import 'package:tencent_trtc_cloud/trtc_cloud_video_view.dart';
+import 'package:betterchat/widgets/moveable_container.dart';
 
 class VideoPage extends StatefulWidget {
   const VideoPage({Key? key}) : super(key: key);
@@ -112,7 +113,8 @@ class _VideoPageState extends State<VideoPage> {
               ],
             ),
           ),
-        )
+        ),
+        const MoveableStackItem(),
       ]),
     );
   }

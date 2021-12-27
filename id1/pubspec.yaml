@@ -37,6 +37,7 @@ dependencies:
   tencent_trtc_cloud: ^2.0.0-dev.0.0.2
   crypto: ^3.0.1
   permission_handler: ^8.3.0
+  draggable_fab: ^0.1.4
 
 dev_dependencies:
   flutter_test:
