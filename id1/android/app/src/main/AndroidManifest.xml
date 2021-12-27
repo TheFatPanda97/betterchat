@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.betterchat">
    <application
+        tools:replace="android:label"
         android:label="betterchat"
         android:icon="@mipmap/ic_launcher">
         <activity

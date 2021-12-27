@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+lib/utils/generate_user_sig.dart
 
 # IntelliJ related
 *.iml
