@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:tencent_trtc_cloud/trtc_cloud_video_view.dart';
+import 'package:tencent_trtc_cloud/trtc_cloud_def.dart';
+import 'package:tencent_trtc_cloud/trtc_cloud.dart';
 
 class MoveableStackItem extends StatefulWidget {
-  const MoveableStackItem({Key? key}) : super(key: key);
+  TRTCCloud trtcCloud;
+  final bool remoteUserConnected;
+  final bool isOpenFrontCamera;
+  final void Function(int localViewId) updateLocalViewId;
+
+  MoveableStackItem(
+      {Key? key,
+      required this.trtcCloud,
+      required this.remoteUserConnected,
+      required this.isOpenFrontCamera,
+      required this.updateLocalViewId})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -20,6 +34,10 @@ class _MoveableStackItemState extends State<MoveableStackItem> {
       left: xPosition,
       child: GestureDetector(
         onPanUpdate: (tapInfo) {
+          if (!widget.remoteUserConnected) {
+            return;
+          }
+
           double width = MediaQuery.of(context).size.width;
           double height = MediaQuery.of(context).size.height;
 
@@ -35,10 +53,20 @@ class _MoveableStackItemState extends State<MoveableStackItem> {
             }
           });
         },
-        child: Container(
-          width: 130,
-          height: 220,
-          color: Colors.red,
+        child: SizedBox(
+          width: widget.remoteUserConnected
+              ? 130
+              : MediaQuery.of(context).size.width,
+          height: widget.remoteUserConnected
+              ? 220
+              : MediaQuery.of(context).size.height,
+          child: TRTCCloudVideoView(onViewCreated: (viewId) async {
+            await widget.trtcCloud
+                .startLocalPreview(widget.isOpenFrontCamera, viewId);
+            await widget.trtcCloud
+                .startLocalAudio(TRTCCloudDef.TRTC_AUDIO_QUALITY_DEFAULT);
+            widget.updateLocalViewId(viewId);
+          }),
         ),
       ),
     );
